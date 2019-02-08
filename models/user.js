@@ -30,21 +30,95 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     profilePhoto: {
+      url: {
+        type: String,
+        required: true,
+      },
+      public_id: {
+        type: String,
+        // required: true,
+      },
+    },
+    bio: {
       type: String,
       required: true,
+      maxlength: 255,
     },
     location: {
       type: String,
       required: true,
     },
+    address: {
+      type: String,
+      required: true,
+      maxlength: 100,
+    },
     gender: {
       type: String,
-      require: true,
+      required: true,
     },
     products: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
+      }
+    ],
+    cart: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Product',
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+      }
+    ],
+    contacts: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    }],
+    chats: [
+      {
+        partner: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',
+        },
+        messages: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Message',
+          }
+        ],
+      }
+    ],
+    isOnline: {
+      type: Boolean,
+      default: true,
+    },
+    notifications: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Product',
+        },
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',
+        },
+        notificationType: {
+          type: String,
+          require: true,
+        },
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+        isRead: {
+          type: Boolean,
+          default: false,
+        },
       }
     ],
   },
@@ -64,6 +138,7 @@ userSchema.method('toUserJSON', function () {
   delete cloned.userName;
   delete cloned.email;
   delete cloned.password;
+  delete cloned.contacts;
   return cloned;
 });
 

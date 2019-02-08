@@ -7,7 +7,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
       minlength: 5,
-      maxlength: 15,
+      maxlength: 25,
     },
     price: {
       type: Number,
@@ -16,6 +16,7 @@ const productSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
+      maxlength: 500,
     },
     images: [
       {
@@ -25,7 +26,7 @@ const productSchema = new mongoose.Schema(
         },
         public_id: {
           type: String,
-          required: true,
+          // required: true,
         },
       }
     ],
@@ -33,6 +34,11 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    likers: [
+      {
+        type: String,
+      }
+    ],
     location: {
       type: String,
       required: true,
@@ -40,6 +46,18 @@ const productSchema = new mongoose.Schema(
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
+    },
+    category: {
+      type: String,
+      required: true,
+    },
+    condition: {
+      type: String,
+      required: true,
+    },
+    isSold: {
+      type: Boolean,
+      default: false,
     },
     reviews: [
       {

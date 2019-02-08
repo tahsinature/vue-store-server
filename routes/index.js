@@ -1,5 +1,10 @@
+module.exports.home = require('./home');
 module.exports.auth = require('./auth');
 module.exports.product = require('./product');
-module.exports.user = require('./user');
+module.exports.cart = require('./cart');
 module.exports.media = require('./media');
-module.exports.test = require('./test');
+module.exports.review = require('./review');
+module.exports.like = require('./like');
+module.exports.chat = require('./chat');
+module.exports.contact = require('./contact');
+module.exports.notification = require('./notification');

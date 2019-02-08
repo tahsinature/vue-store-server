@@ -1,10 +1,13 @@
 {
   "name": "state-management",
   "version": "1.0.0",
+  "engines": {
+    "node": "11.6.0"
+  },
   "description": "This is a marketplace project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Mohammad Tahsin",
   "license": "ISC",
@@ -14,12 +17,15 @@
     "cors": "^2.8.5",
     "debug": "^4.1.1",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "fuse.js": "^3.3.0",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.4",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
+    "socket.io": "^2.2.0",
     "throw.js": "^3.0.1",
     "winston": "^3.1.0"
   },
@@ -50,9 +56,20 @@
           "functions": "never"
         }
       ],
-      "no-unused-vars": [
-        "warn"
+      "max-len": [
+        "error",
+        {
+          "code": 1120
+        }
       ],
+      "global-require": 0,
+      "no-param-reassign": 0,
+      "no-unused-vars": 0,
+      "consistent-return": 0,
+      "prefer-destructuring": 0,
+      "no-underscore-dangle": 0,
+      "eqeqeq": 0,
+      "no-unused-expressions": 0,
       "no-var": [
         "off"
       ],

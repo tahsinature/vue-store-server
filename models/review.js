@@ -11,9 +11,19 @@ const reviewSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    author: {
+    likers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      }
+    ],
+    product: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'Product',
+    },
+    author: {
+      _id: String,
+      fullName: String,
     },
   },
   { timestamps: true, }
