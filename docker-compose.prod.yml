@@ -9,6 +9,6 @@ services:
     env_file:
       - .env
     environment:
-      - VIRTUAL_HOST: "vue-store-server.do.tahsinature.me"
-      - VIRTUAL_PORT: "3000"
-      - LETSENCRYPT_HOST: "vue-store-server.do.tahsinature.me"
+      VIRTUAL_HOST: "vue-store-server.do.tahsinature.me"
+      VIRTUAL_PORT: "3000"
+      LETSENCRYPT_HOST: "vue-store-server.do.tahsinature.me"
