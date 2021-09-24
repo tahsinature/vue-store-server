@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    ports:
+      - "3000"
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: "vue-store-server.do.tahsinature.me"
+      VIRTUAL_PORT: "3000"
+      LETSENCRYPT_HOST: "vue-store-server.do.tahsinature.me"
+    networks:
+      - nginx_proxy_net
+
+networks:
+  nginx_proxy_net:
+    external: true

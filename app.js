@@ -57,6 +57,6 @@ const server = app.listen(port, IP, () => {
     )
     .then(() => console.log('Connected to DB'))
     .catch(() => {
-      console.log('DB Connection Failed');
+      console.log(`DB Connection Failed: ${dbUri}`);
     });
 });
