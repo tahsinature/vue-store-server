@@ -7,13 +7,16 @@ services:
       - "3000"
     env_file:
       - .env
-    environment:
-      VIRTUAL_HOST: "vue-store-server.do.tahsinature.me"
-      VIRTUAL_PORT: "3000"
-      LETSENCRYPT_HOST: "vue-store-server.do.tahsinature.me"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.vue-store-server.rule=Host(`vue-store-server.tahsin.us`)
+      - traefik.http.routers.vue-store-server.entrypoints=websecure
+      - traefik.http.services.vue-store-server.loadbalancer.server.port=80
+      - traefik.http.routers.vue-store-server.tls=true
+      - traefik.http.routers.vue-store-server.tls.certresolver=myresolver
     networks:
-      - nginx_proxy_net
+      - traefik
 
 networks:
-  nginx_proxy_net:
+  traefik:
     external: true
