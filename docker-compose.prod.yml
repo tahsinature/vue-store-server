@@ -11,7 +11,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.vue-store-server.rule=Host(`vue-store-server.tahsin.us`)
       - traefik.http.routers.vue-store-server.entrypoints=websecure
-      - traefik.http.services.vue-store-server.loadbalancer.server.port=80
+      - traefik.http.services.vue-store-server.loadbalancer.server.port=3000
       - traefik.http.routers.vue-store-server.tls=true
       - traefik.http.routers.vue-store-server.tls.certresolver=myresolver
     networks:
